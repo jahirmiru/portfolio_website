@@ -1,68 +1,134 @@
-// Mobile Menu Toggle
-const menuToggle = document.querySelector('.menu-toggle');
-const navLinks = document.querySelector('.nav-links');
-const navItems = document.querySelectorAll('.nav-links a');
+// ==========================================================================
+// S. S. M Jahir Jahan Khan Miru - Portfolio JavaScript
+// Interactive UI, Navigation, ScrollSpy, Animations
+// ==========================================================================
 
-menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    // Change icon between bars and times
-    const icon = menuToggle.querySelector('i');
-    if (navLinks.classList.contains('active')) {
-        icon.classList.remove('fa-bars');
-        icon.classList.add('fa-times');
-    } else {
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Mobile Menu Toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+    const navItems = document.querySelectorAll('.nav-links a');
+
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile menu when clicking on any nav link
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    const icon = menuToggle.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        });
     }
-});
 
-// Close mobile menu when clicking on a link
-navItems.forEach(item => {
-    item.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        const icon = menuToggle.querySelector('i');
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
-    });
-});
+    // 2. Navbar Elevation & Back-to-top Button on Scroll
+    const navbar = document.getElementById('navbar');
+    const backToTopBtn = document.getElementById('back-to-top');
 
-// Sticky Navbar Background on Scroll
-const navbar = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
 
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        navbar.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.1)';
-        navbar.style.padding = '0.5rem 0';
-    } else {
-        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
-        navbar.style.padding = '1rem 0';
-    }
-});
+        // Navbar blur and shadow
+        if (navbar) {
+            if (scrollY > 40) {
+                navbar.style.boxShadow = '0 4px 20px rgba(0, 95, 115, 0.12)';
+                navbar.style.background = 'rgba(255, 255, 255, 0.96)';
+            } else {
+                navbar.style.boxShadow = '0 2px 15px rgba(0, 95, 115, 0.04)';
+                navbar.style.background = 'rgba(255, 255, 255, 0.9)';
+            }
+        }
 
-// Reveal Elements on Scroll
-const revealElements = document.querySelectorAll('.project-card, .timeline-item, .skill-category, .edu-card, .stat-item');
-
-const revealOnScroll = () => {
-    const windowHeight = window.innerHeight;
-    const elementVisible = 150;
-    
-    revealElements.forEach(element => {
-        const elementTop = element.getBoundingClientRect().top;
-        
-        if (elementTop < windowHeight - elementVisible) {
-            element.style.opacity = '1';
-            element.style.transform = 'translateY(0)';
+        // Back to top visibility
+        if (backToTopBtn) {
+            if (scrollY > 400) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
         }
     });
-};
 
-// Initial state for reveal elements
-revealElements.forEach(element => {
-    element.style.opacity = '0';
-    element.style.transform = 'translateY(30px)';
-    element.style.transition = 'all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1)';
+    // Back to top click handler
+    if (backToTopBtn) {
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    // 3. ScrollSpy for Active Navigation Link
+    const sections = document.querySelectorAll('section[id]');
+    
+    function scrollSpy() {
+        const scrollY = window.pageYOffset + 120;
+
+        sections.forEach(current => {
+            const sectionHeight = current.offsetHeight;
+            const sectionTop = current.offsetTop - 50;
+            const sectionId = current.getAttribute('id');
+            const correspondingLink = document.querySelector(`.nav-links a[href*="${sectionId}"]`);
+
+            if (correspondingLink && !correspondingLink.classList.contains('btn-nav')) {
+                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    correspondingLink.classList.add('active');
+                } else {
+                    correspondingLink.classList.remove('active');
+                }
+            }
+        });
+    }
+
+    window.addEventListener('scroll', scrollSpy);
+
+    // 4. Reveal Elements on Scroll using IntersectionObserver
+    const animatedElements = document.querySelectorAll(
+        '.featured-card, .project-card, .timeline-item, .skill-category, .edu-card, .involvement-card, .stat-item, .contact-box'
+    );
+
+    if ('IntersectionObserver' in window) {
+        const observerOptions = {
+            threshold: 0.12,
+            rootMargin: '0px 0px -40px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries, observerInstance) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    observerInstance.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        animatedElements.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(24px)';
+            el.style.transition = 'opacity 0.6s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1)';
+            observer.observe(el);
+        });
+    } else {
+        // Fallback for older browsers
+        animatedElements.forEach(el => {
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+        });
+    }
 });
-
-// Run once on load and then on scroll
-window.addEventListener('load', revealOnScroll);
-window.addEventListener('scroll', revealOnScroll);

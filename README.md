@@ -1,50 +1,70 @@
-# Jahir Jahan Miru - Personal Portfolio
+# S. S. M Jahir Jahan Khan Miru - Personal Portfolio
 
-A sleek, responsive, and static personal portfolio website designed for **S. S. M Jahir Jahan Khan Miru**, an Urban Planner and AI Researcher specializing in transport planning, computer vision, and predictive modeling.
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Live Site](https://img.shields.io/badge/website-jahirmiru.ami.bd-005F73)](https://jahirmiru.ami.bd/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Profile-0A9396)](https://linkedin.com/in/jahir-jahan-miru)
 
-## 🚀 Features
+A modern, responsive, and performance-optimized personal portfolio website designed for **S. S. M Jahir Jahan Khan Miru**, an Urban Planner and AI Transport Researcher (BUET Graduate) specializing in Transport Microsimulation, Computer Vision, Deep Learning, and Spatial Analytics.
 
-- **Deep Teal Theme:** A visually soothing, custom-built deep teal aesthetic (`#005F73`).
-- **Fully Responsive:** Adapts seamlessly to all screen sizes (desktop, tablet, mobile).
-- **Static & Lightweight:** Built using pure HTML, Vanilla CSS, and minimal Vanilla JavaScript. No build tools or complex dependencies required.
-- **Comprehensive Sections:**
-  - **About:** Professional summary and key statistics.
-  - **Experience:** Timeline of professional roles (Plansculpt, Sheltech, Topbright, etc.).
-  - **Projects:** Grid showcasing 20+ Traffic Impact Assessments, AI Agent Modeling, and Masterplan designs.
-  - **Skills:** Detailed categorization of technical proficiencies (SUMO, YOLO, PyTorch, ArcGIS, Drone Piloting, etc.).
-  - **Education & Certifications:** Academic background and professional certifications.
-  - **Involvements:** Extracurricular leadership roles.
-  - **Contact:** Links to GitHub, LinkedIn, and direct email/phone contact.
+---
+
+## 🚀 Key Highlights & Sections
+
+- **Deep Teal & Slate Theme:** Modern visual styling with glassmorphism, glowing accents, and responsive layout.
+- **Flagship AI & Simulation Showcase:**
+  - **AI-Powered Automated Vehicle Counting & Traffic Survey System** (PyTorch, TensorRT, YOLO, OpenCV) with YouTube video demo link.
+  - **Predictive Modeling of Traffic Impacts using AI Agents** (SUMO, DTCA Guidelines 2025) with GitHub repository link.
+- **Academic Research:**
+  - MRT Line-6 Pedestrian Catchment Area & Walking Distance Study (2,900 surveys, QNEAT3, MLR, GBDT).
+  - Festival Highway Infrastructure Stress Analysis.
+  - Urban Solid Waste Disposal Site Suitability (MCDM & Weighted Overlay).
+  - BUET Campus Accessibility and Safety Audit.
+- **Professional Timeline:** Full experience record covering Plansculpt Private Consultants (CEO & Urban Planner), Sheltech Consultants (IUGIP Project), Topbright (CHRDC Master Plan), and TORK INC (GIS Analyst).
+- **Technical Skillsets:** Comprehensive categorization covering Transport Modeling (PTV Vissim, Sidra, SUMO, Synchro), AI/ML (PyTorch, YOLO, OpenCV), GIS & Spatial Analysis (QGIS, ArcGIS Pro, QNEAT3), Programming (Python, GEE, MATLAB, R, SQL), and Sensors (Photogrammetry, UAV Drone Piloting, RTK GNSS).
+- **Education & Credentials:** BUET Bachelor of Urban & Regional Planning, Notre Dame College (Scholarship), Certifications (MathWorks, Coursera), and Scout Leadership honors.
+
+---
 
 ## 🛠️ Built With
 
-- **HTML5:** Semantic structure for optimal accessibility and SEO.
-- **CSS3:** Custom styling using Flexbox, CSS Grid, and CSS Variables.
-- **JavaScript:** Smooth scrolling, scroll-reveal animations, and mobile navigation toggling.
-- **FontAwesome:** For intuitive, scalable iconography.
-- **Google Fonts:** Utilizing the modern 'Outfit' typeface.
+- **HTML5:** Semantic structure for maximum accessibility and SEO ranking.
+- **Vanilla CSS3:** Clean CSS variables, Flexbox, CSS Grid, and subtle micro-animations.
+- **Vanilla JavaScript (ES6+):** Responsive mobile menu, IntersectionObserver scroll animations, ScrollSpy active link highlighting, and back-to-top handler.
+- **FontAwesome 6:** Clean iconography.
+- **Google Fonts:** Modern 'Outfit' & 'Plus Jakarta Sans' typefaces.
 
-## 💻 How to Run Locally
+---
 
-Because this is a completely static website, there is no installation or build step necessary.
+## 💻 How to Preview Locally
 
-1. Clone or download this repository.
-2. Open the folder on your computer.
-3. Double-click on `index.html` to open it in your default web browser.
+Because this is a pure static web application, no dependencies or build steps are required:
 
-## 🌐 Deployment & Hosting
+1. Clone or download this repository:
+   ```bash
+   git clone https://github.com/jahirmiru/portfolio_website.git
+   ```
+2. Open `index.html` in any web browser.
 
-This website is perfectly suited for free hosting solutions like **GitHub Pages**, **Netlify**, or **Vercel**.
+---
 
-### Deploying via GitHub Pages
-1. Push this repository to GitHub (name it `yourusername.github.io` to act as your primary user site).
-2. Navigate to your repository's **Settings > Pages**.
-3. Set the source branch to `main` (or `master`) and save.
-4. Your site will be live at `https://yourusername.github.io`.
+## 🌐 Deploy to GitHub Pages
 
-### Adding a Custom Domain
-You can easily point your own custom domain to GitHub Pages by adding your domain in the Pages settings and configuring your domain registrar's DNS (A records pointing to GitHub's IPs, and a CNAME record for `www`).
+1. Create a repository on GitHub (e.g., `portfolio_website` or `jahirmiru.github.io`).
+2. Push your project files to the `main` branch:
+   ```bash
+   git init
+   git add .
+   git commit -m "Update portfolio with latest CV and research projects"
+   git branch -M main
+   git remote add origin https://github.com/<your-username>/<your-repo-name>.git
+   git push -u origin main
+   ```
+3. Go to **Settings > Pages** on your GitHub repository.
+4. Under **Branch**, select `main` and `/ (root)`, then click **Save**.
+5. Your portfolio will be live at `https://<your-username>.github.io/<your-repo-name>/`.
+
+---
 
 ## 📄 License
 
-This project is open-source and available under the [MIT License](LICENSE).
+This project is licensed under the [MIT License](LICENSE).
