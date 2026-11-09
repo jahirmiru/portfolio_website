@@ -12,8 +12,8 @@ A modern, responsive, and performance-optimized personal portfolio website desig
 
 - **Deep Teal & Slate Theme:** Modern visual styling with glassmorphism, glowing accents, and responsive layout.
 - **Flagship AI & Simulation Showcase:**
-  - **AI-Powered Automated Vehicle Counting & Traffic Survey System** (PyTorch, TensorRT, YOLO, OpenCV) with YouTube video demo link.
-  - **Predictive Modeling of Traffic Impacts using AI Agents** (SUMO, DTCA Guidelines 2025) with GitHub repository link.
+  - **AI-Powered Automated Vehicle Counting & Traffic Survey System** (PyTorch, TensorRT, YOLO, OpenCV) with [YouTube Video Demo](https://youtu.be/P7VO7OKq5FI).
+  - **Predictive Modeling of Traffic Impacts using AI Agents** (SUMO, DTCA Guidelines 2025) with [GitHub Repository](https://www.github.com/jahirmiru/SUMO_with_AI).
 - **Academic Research:**
   - MRT Line-6 Pedestrian Catchment Area & Walking Distance Study (2,900 surveys, QNEAT3, MLR, GBDT).
   - Festival Highway Infrastructure Stress Analysis.
